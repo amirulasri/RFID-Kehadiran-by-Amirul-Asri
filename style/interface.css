@@ -1,0 +1,116 @@
+body {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    background: linear-gradient(-135deg, rgb(34, 76, 152) 10%, transparent), repeating-linear-gradient(45deg, rgba(34, 76, 152, 1) 0%, rgba(31, 48, 94, 0.6) 5%, transparent 5%, transparent 10%), repeating-linear-gradient(-45deg, rgba(34, 76, 152, 0.4) 0%, rgba(31, 48, 94, 0.5) 5%, transparent 5%, transparent 10%);
+    background-color: rgba(34, 76, 152, 0.25);
+}
+
+header {
+    z-index: 30;
+}
+
+.rfidcontainer {
+    position: absolute;
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 20px;
+}
+
+.rfidcontainer2 {
+    border-top: 6px solid rgb(0, 255, 255);
+    display: flex;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    box-shadow: 20px 20px 50px rgb(255, 255, 255);
+}
+
+.rfidinterface {
+    width: 100%;
+    line-height: 1.5;
+}
+
+.fullwidth {
+    width: 100%;
+}
+
+input[type="checkbox"] {
+    position: relative;
+    width: 40px;
+    height: 20px;
+    -webkit-appearance: none;
+    background: #ff0000;
+    outline: none;
+    border-radius: 20px;
+    box-shadow: inset 0 0 5px rgba(255, 0, 0, 0.2);
+    transition: .2s;
+}
+
+input:checked[type="checkbox"] {
+    background: #30ce00;
+}
+
+#tekskehadiran {
+    background-color: rgb(224, 224, 224);
+}
+
+#tekskehadirantidakhadir {
+    background-color: rgb(224, 224, 224);
+}
+
+input[type="checkbox"]:before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    top: 0;
+    left: 0;
+    background: #ffffff;
+    transform: scale(1.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: .2s;
+}
+
+input:checked[type="checkbox"]:before {
+    left: 20px;
+}
+
+.titlecolor {
+    color: black;
+}
+
+.animation {
+    transition: 0.6s;
+}
+
+.sticky {
+    position: fixed;
+    margin: 0;
+    bottom: 0;
+    top: 0;
+    width: 100%;
+}
+
+.margintable {
+    margin-top: 80px;
+}
+
+.sticky+.boranglogin {
+    padding-top: 100px;
+}
+
+@media screen and (max-width: 700px) {
+    .boranglogin {
+        padding: 0;
+    }
+    .boranglogindalam {
+        padding: 10px;
+    }
+    .titlebox {
+        font-size: unset;
+    }
+}
