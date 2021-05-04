@@ -23,6 +23,8 @@ include('conn.php');
             font-size: 40px;
             text-align: center;
             border-radius: 40px;
+            border: none;
+            outline: none;
         }
 
         .containerrfid {
@@ -91,7 +93,7 @@ include('conn.php');
                         $hasilmasatinggal = 60 - intval($masasemasa);
                     ?>
                         <div style="text-align: center; font-size:20px;" class="alert alert-danger" id="mesejsistem" role="alert">
-                            <b>Anda sentuh kad lebih dari satu kali pada masa yang sama. Cuba semula dalam <?php echo $hasilmasatinggal ?> Saat.</b>
+                            <b>Anda sentuh kad lebih dari satu kali pada masa yang sama. Cuba semula selepas <?php echo $hasilmasatinggal ?> Saat.</b>
                         </div>
                     <?php
                     }
@@ -177,7 +179,7 @@ include('conn.php');
             } else {
                 document.getElementById("jam").innerHTML = hour + ":" + minute + ":" + ss + " AM";;
             }
-            var time = setTimeout(jam, 1000);
+            var time = setTimeout(jam, 500);
         }
 
         jam();
