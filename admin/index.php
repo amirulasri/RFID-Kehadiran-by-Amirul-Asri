@@ -1,5 +1,10 @@
 <?php
 include('../conn.php');
+session_start();
+if (isset($_SESSION['admin'])) {
+} else {
+    header("location:login");
+}
 ?>
 
 <!DOCTYPE html>
@@ -10,8 +15,10 @@ include('../conn.php');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=8.0">
     <title>Admin <?php echo $namasistem; ?></title>
+    <script src="../jquery/jquery-3.4.1.js"></script>
     <link rel="stylesheet" href="../style/bootstrap.css">
     <link rel="stylesheet" href="../style/interface.css">
+    <script src="../js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -38,7 +45,7 @@ include('../conn.php');
                     <a class="nav-link" href="kehadirankeseluruhan">Rekod kehadiran</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="modal" data-target="#settings" href="#">Periksa RFID</a>
+                    <a class="nav-link" href="rfid?checkrfid=1">Periksa RFID</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="logkeluar">Log Keluar</a>
