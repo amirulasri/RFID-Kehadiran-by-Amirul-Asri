@@ -5,6 +5,16 @@ if (isset($_SESSION['admin'])) {
 } else {
     header("location:login");
 }
+
+//DAPATKAN KEHADIRAN YANG TERAKHIR
+$querylastrekod = mysqli_query($conn, "SELECT MAX(tarikh) AS rekodakhir FROM rekodkehadiran");
+$getdatarekodakhir = mysqli_fetch_assoc($querylastrekod);
+$tarikhrekodakhir = $getdatarekodakhir['rekodakhir'];
+
+//TUKAR FORMAT TARIKH AGAR MUDAH DIFAHAMI UNTUK DIPAPAR KE SKRIN
+$tarikhsemasa = $tarikhrekodakhir;
+$date = new DateTime($tarikhsemasa);
+$tarikhakhirformatbaru = $date->format('d-m-Y');
 ?>
 
 <!DOCTYPE html>
@@ -35,14 +45,14 @@ if (isset($_SESSION['admin'])) {
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Laman Utama</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="index">Laman Utama</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="pengguna">Pengguna</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="kehadirankeseluruhan">Rekod kehadiran</a>
+                    <a class="nav-link active" href="#">Rekod kehadiran</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="rfid?checkrfid=1">Periksa RFID</a>
@@ -58,10 +68,13 @@ if (isset($_SESSION['admin'])) {
     <div class="rfidcontainer">
         <div class="rfidcontainer2">
             <div class="rfidinterface">
-                <table>
-                    <thead>
+                <h2>Data Kehadiran yang direkodkan</h2>
+                <label for="">Tarikh:</label>
+                <input type="date" name="tarikhrekod" value="<?php echo $tarikhrekodakhir ?>" id=""><br><br>
+                <table class="table">
+                    <thead class="table-dark">
                         <tr>
-                            <th></th>
+                            <th>Rekod terakhir: <?php echo $tarikhakhirformatbaru ?></th>
                         </tr>
                     </thead>
                 </table>
@@ -69,5 +82,3 @@ if (isset($_SESSION['admin'])) {
         </div>
     </div>
 </body>
-
-</html>

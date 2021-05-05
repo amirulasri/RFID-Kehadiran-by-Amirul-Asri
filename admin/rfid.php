@@ -76,7 +76,7 @@ if (isset($_POST['prosespengguna'])) {
                     <a class="nav-link" href="rfid?checkrfid=1">Periksa RFID</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="logkeluar">Log Keluar</a>
+                    <a class="nav-link" href="logkeluar" onclick="return confirm('Adakah anda pasti ingin mengelog keluar?')">Log Keluar</a>
                 </li>
             </ul>
         </div>

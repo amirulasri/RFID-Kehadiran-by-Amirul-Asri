@@ -10,7 +10,7 @@ if (isset($_GET['rfid']) && !empty($_GET['rfid'])) {
     $rfid = $_GET['rfid'];
     $queryrfid = mysqli_query($conn, "SELECT * FROM pengguna WHERE rfid='$rfid'");
     if (mysqli_num_rows($queryrfid) == 0) {
-        echo '<script>alert("Kad yang anda sentuh pada pembaca masih belum didaftar ke dalam sistem. (KAD BARU)"); window.location="rfid?checkrfid=1";</script>';
+        echo '<script>alert("Kad RFID yang disentuh atau ID yang dimasukkan tiada dalam data."); window.location="rfid?checkrfid=1";</script>';
     } else {
         $getdatarfid = mysqli_fetch_assoc($queryrfid);
         $nama = $getdatarfid['nama'];
@@ -53,7 +53,7 @@ if (isset($_GET['rfid']) && !empty($_GET['rfid'])) {
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Laman Utama</a>
+                    <a class="nav-link" href="index">Laman Utama</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="pengguna">Pengguna</a>
@@ -65,7 +65,7 @@ if (isset($_GET['rfid']) && !empty($_GET['rfid'])) {
                     <a class="nav-link" href="rfid?checkrfid=1">Periksa RFID</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="logkeluar">Log Keluar</a>
+                    <a class="nav-link" href="logkeluar" onclick="return confirm('Adakah anda pasti ingin mengelog keluar?')">Log Keluar</a>
                 </li>
             </ul>
         </div>
